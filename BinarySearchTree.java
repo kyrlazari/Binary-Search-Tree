@@ -100,7 +100,38 @@ public class BinarySearchTree{
 				parent.setRightChild(current.getRightChild());
 				System.out.println("The new parent is, "+parent.getData());
 			}
-		}	
+		}
+		//Case 3, the node we want to delete has two children
+		else {
+			TreeNode successor = getSuccessor(current);
+			if (current == root)
+				root = successor;
+			else if (isLeftChild) {
+				parent.setLeftChild(successor);
+			} else {
+				parent.setRightChild(successor);
+			}
+			successor.setLeftChild(current.getLeftChild());
+		}
 			
 	}
+	/*
+	Helper method to delete a node with two children
+	*/
+	private TreeNode getSuccessor(TreeNode node) {
+		TreeNode parentOfSuccessor = node;
+		TreeNode successor = node;
+		TreeNode current = node.getRightChild();
+		while (current != null) {
+			parentOfSuccessor = successor;
+			successor = current;
+			current = current.getLeftChild();
+		}
+		if (successor != node.getRightChild()) {
+			parentOfSuccessor.setLeftChild(successor.getRightChild());
+			successor.setRightChild(node.getRightChild());
+		}
+		return successor;
+	}
+
 }
