@@ -68,6 +68,38 @@ public class BinarySearchTree{
 					
 				}
 			}	
+		}
+		//case 2, the node we want to delete has only one child
+		else if( current.getRightChild() == null){
+			if(current == null){
+				root = current.getLeftChild();
+				System.out.println("The root know is the right child, "+root.getData());	
+			}
+			else if(isLeftChild){
+
+				parent.setLeftChild(current.getLeftChild());
+				System.out.println("The new parent is, "+parent.getData());
+			}
+			else{
+				parent.setRightChild(current.getLeftChild());
+				System.out.println("The new parent is, "+parent.getData());
+			}
+		}
+		else if( current.getLeftChild() == null){
+			if(current == null){
+				
+				root = current.getRightChild();
+				System.out.println("The root know is the right child, "+root.getData());
+			}
+			else if(isLeftChild){
+				parent.setLeftChild(current.getRightChild());
+				System.out.println("The new parent is, "+parent.getData());
+			}
+			else{
+
+				parent.setRightChild(current.getRightChild());
+				System.out.println("The new parent is, "+parent.getData());
+			}
 		}	
 			
 	}
