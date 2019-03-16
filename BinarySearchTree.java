@@ -28,7 +28,47 @@ public class BinarySearchTree{
 		return null;	
 	}
 	public void delete(int data){
+		TreeNode current = this.root;
+		TreeNode parent = this.root;
+		boolean isLeftChild = false;
+		if(current == null){
+			System.out.println("Empty BST !");
+			return;
+		}
+		while(current != null && current.getData() != data){
+			parent = current;
+			if(data < current.getData()){
+				current = current.getLeftChild();
+				isLeftChild = true;
+			}
+			else{
+				current = current.getRightChild();
+				isLeftChild = false;	
+			}	
+		}
+		if(current == null){
 
+			System.out.println("This data not found in the tree !");
+			return;
+		}
+		//Case 1 deleting node is a leaf
+		if(current.getLeftChild() == null && current.getRightChild() == null ){
+			if(current == null){
+				return;
+			}
+			else{
+				if(isLeftChild){
+					System.out.println("Deletion of left child, "+ parent.getLeftChild());
+					parent.setLeftChild(null);
+					
+				}
+				else{
+					System.out.println("Deletion of right child, "+parent.getRightChild());
+					parent.setRightChild(null);
+					
+				}
+			}	
+		}	
 			
 	}
 }
