@@ -5,7 +5,7 @@ public class BinarySearchTree{
 	/*Insert data into BST,calling the method insert of TreeNode class 
 	Complexicity:
 		Best Case: O(1), empty BST.insert root.
-		Worst Case: O(n)
+		Worst Case: O(logn) , logarithm base of two
 	*/	
 	public void insert(int data){
 		if(root == null){
@@ -19,7 +19,7 @@ public class BinarySearchTree{
 	TreeNode class. Starting the search from the root.
 	Complexicity:
 		Best Case: O(1), root
-		Worst Case: O(n) 
+		Worst Case: O(logn) ,logarith base of two 
 	*/
 	public TreeNode find(int data){
 		if(root != null){
@@ -27,6 +27,10 @@ public class BinarySearchTree{
 		}
 		return null;	
 	}
+	/*
+	Complexicity:
+		Best Case: O(1), root
+		Worst Case: O(logn) ,logarith base of two */
 	public void delete(int data){
 		TreeNode current = this.root;
 		TreeNode parent = this.root;
