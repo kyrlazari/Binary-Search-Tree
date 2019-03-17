@@ -69,6 +69,25 @@ public class TreeNode{
 
 		this.rightChild = rightChild;
 	}
+	/*
+	Left most node is the node with the smallest element
+	*/
+	public int findMin(){
+
+		if(this.leftChild == null){
+			return this.data;
+		}
+		return this.leftChild.findMin();
+	}
+	/*
+	RightMost node is the node with the largest element
+	*/
+	public int findMax(){
+		if(this.rightChild == null){
+			return this.data;
+		}
+		return this.rightChild.findMax();
+	}
 	//ToString
 	public String toString(){
 		return "Data : "+this.data;

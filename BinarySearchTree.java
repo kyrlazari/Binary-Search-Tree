@@ -133,5 +133,24 @@ public class BinarySearchTree{
 		}
 		return successor;
 	}
+	/*
+	Find the minimum element with recursion
+	*/
+	public Integer getMin(){
+		if(this.root != null){
+
+			return this.root.findMin();
+		}
+		return null;
+	}
+	/*
+	Find the maximum element with recursion
+	*/
+	public Integer getMax(){
+		if(this.root != null){
+			return this.root.findMax();
+		}
+		return null;
+	}
 
 }
