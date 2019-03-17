@@ -102,7 +102,42 @@ public class TreeNode{
 		if (this.rightChild != null)
 			this.rightChild.traverseInOrder();
 	}
+	public int height() {
+		if (isLeaf()) return 1;
+		int left = 0;
+		int right = 0;
+		if (this.leftChild != null)
+			left = this.leftChild.height();
+		if (this.rightChild != null)
+			right = this.rightChild.height();
+		return (left > right) ? (left + 1) : (right + 1);
+	}
+	public boolean isLeaf() {
+		return this.leftChild == null && this.rightChild == null;
+	}
+	
+	public int numOfLeafNodes() {
+		if (isLeaf()) return 1;
+		int leftLeaves = 0;
+		int rightLeaves = 0;
+		if (this.leftChild != null)
+			leftLeaves = leftChild.numOfLeafNodes();
+		if (this.rightChild != null)
+			rightLeaves = rightChild.numOfLeafNodes();
+		return leftLeaves + rightLeaves;
+	}
+	public static TreeNode addSorted(int[] data, int start, int end) {
+		if (end >= start) {
+			int mid = (start+end)/2;
+			TreeNode newNode = new TreeNode(data[mid]);
+			newNode.leftChild = addSorted(data, start, mid-1);
+			newNode.rightChild = addSorted(data, mid+1, end);
+			return newNode;
+		}
+		return null;
+	}
 	//ToString
+
 	public String toString(){
 		return ""+this.data;
 	}	

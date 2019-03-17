@@ -157,5 +157,40 @@ public class BinarySearchTree{
 			this.root.traverseInOrder();
 		System.out.println();
 	}
+	public int numOfLeafNodes() {
+		if (this.root == null) return 0;
+		return this.root.numOfLeafNodes();
+	}
+	public int getLeafCount()  
+    { 
+        return getLeafCount(root); 
+    } 
+	public int getLeafCount(TreeNode node)  
+    { 
+        if (node == null) 
+            return 0; 
+        if (node.getRightChild() == null && node.getLeftChild() == null) 
+            return 1; 
+        else
+            return getLeafCount(node.getLeftChild()) + getLeafCount(node.getRightChild()); 
+    }
+    public TreeNode getRoot(){
+    	return this.root;
+    }	
+	public int getHeight(){
+		if(this.root == null){
+			return 0;
+		}
+		else{
+			return this.root.height();
+		}
+	}
+	public static BinarySearchTree createFromSortedArray(int[] data) {
+		BinarySearchTree bst = new BinarySearchTree();		
+		if (data != null && data.length > 0) {
+			bst.root = TreeNode.addSorted(data, 0, data.length-1);
+		}
+		return bst;
+	}
 
 }
