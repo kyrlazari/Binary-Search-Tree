@@ -26,5 +26,8 @@ public class BinarySearchTreeTester{
 		System.out.println("The minimum is "+bst.getMin());
 
 		System.out.println("The maximum is "+bst.getMax());	
+		System.out.println("Traverse in order : ");
+		bst.traverseInOrder();
+
 	}
 }

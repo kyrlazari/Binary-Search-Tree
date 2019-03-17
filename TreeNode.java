@@ -88,9 +88,23 @@ public class TreeNode{
 		}
 		return this.rightChild.findMax();
 	}
+	/*
+
+			55
+		42	   57
+
+		Print: 42, 55, 57
+	*/
+	public void traverseInOrder() {
+		if (this.leftChild != null)
+			this.leftChild.traverseInOrder();
+		System.out.print(this + " ");
+		if (this.rightChild != null)
+			this.rightChild.traverseInOrder();
+	}
 	//ToString
 	public String toString(){
-		return "Data : "+this.data;
+		return ""+this.data;
 	}	
 	
 }

@@ -152,5 +152,10 @@ public class BinarySearchTree{
 		}
 		return null;
 	}
+	public void traverseInOrder() {
+		if (this.root != null)
+			this.root.traverseInOrder();
+		System.out.println();
+	}
 
 }
